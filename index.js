@@ -9,13 +9,13 @@ module.exports = {
 
   /**
    * @param {object} ruleObj
-   * @param {?string} [ruleObj.second = 0] - 0-59 null makes it tick every second
-   * @param {?string} [ruleObj.minute] - 0-59
-   * @param {?string} [ruleObj.hour] 0-23
-   * @param {?string} [ruleObj.date] 1-31
-   * @param {?string} [ruleObj.month] 0-11
-   * @param {?string} [ruleObj.year]
-   * @param {?string} [ruleObj.dayOfWeek] (0-6) Starting with Sunday
+   * @param {?number|number[]} [ruleObj.second = 0] - 0-59 null makes it tick every second
+   * @param {?number|number[]} [ruleObj.minute] - 0-59
+   * @param {?number|number[]} [ruleObj.hour] 0-23
+   * @param {?number|number[]} [ruleObj.date] 1-31
+   * @param {?number|number[]} [ruleObj.month] 0-11
+   * @param {?number|number[]} [ruleObj.year]
+   * @param {?number|number[]} [ruleObj.dayOfWeek] (0-6) Starting with Sunday
    * @param {function} callback
    * @return {Job|*}
    */

@@ -13,7 +13,8 @@ describe(__filename, function () {
     it('Runs job once at some date, calls callback when done', function (done) {
       this.timeout(4000)
 
-      var counter = 0
+      var counter = 0;
+
       var job = scheduler.recurrenceByTime({second: null}, function () {
         counter += 1;
       });
