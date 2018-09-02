@@ -20,7 +20,7 @@ describe(__filename, function () {
 
       setTimeout(function() {
         job.cancel();
-        expect(counter).to.be.greaterThan(2);
+        expect(counter).to.be.greaterThan(1);
         done();
       }, 2250);
 
