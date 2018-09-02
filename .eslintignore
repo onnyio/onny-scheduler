@@ -1,0 +1,13 @@
+node_modules
+_test_
+Documentation
+public/js
+public/lib
+dist
+public/testlib
+public/css
+public/fonts
+public/fontawesome-pro-5.0.6
+coverage
+eslintFormat.js
+mochawesome-reports
