@@ -1,0 +1,58 @@
+{
+  "extends": [
+    "onny"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "plugins": [
+    "react",
+    "import",
+    "json",
+    "chai-expect",
+    "chai-friendly"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      // Pragma to use, default to "React"
+      "version": "16.0"
+      // React version, default to the latest React stable release
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "./WebClient/webpack/webpack.config.js"
+      }
+    }
+  },
+  "globals": {
+    // declare global variables. false means read only. to set it when false use global. (ex global.data sets the data global when false)
+    "__stack": false,
+    "__TEST__": false,
+    "__DEVTOOLS__": false,
+    "__LOCAL__": false,
+    "__DEVTOOLS__EXTENTION__": false,
+    "__SERVER_RENDERING__": false,
+    "__LOG_LOCATION__": false,
+    "__PROD_ALLOW_NEW_TOPICS__": false
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to"],
+      "aspects": [ "noHref", "preferButton" ]
+    }],
+    "react/default-props-match-prop-types": [2, { "allowRequiredDefaults": true }],
+    "jsx-a11y/label-has-for": [ 2, {
+      "components": [ "Label" ],
+      "required": {
+        "some": [ "id" ]
+      },
+      "allowChildren": false
+    }]
+  }
+}
