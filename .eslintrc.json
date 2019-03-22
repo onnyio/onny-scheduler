@@ -12,7 +12,6 @@
   "plugins": [
     "react",
     "import",
-    "json",
     "chai-expect",
     "chai-friendly"
   ],
