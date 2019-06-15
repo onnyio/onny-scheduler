@@ -1,6 +1,6 @@
 {
   "name": "onny-scheduler",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/onnyio/onny-scheduler#readme",
   "dependencies": {
     "node-schedule": "^1.3.2",
-    "onny-utils": "^1.0.16"
+    "onny-utils": "^1.1.0"
   },
   "optionalDependencies": {
     "chai": "^4.2.0",
