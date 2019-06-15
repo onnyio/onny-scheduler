@@ -2,6 +2,9 @@
 
 # OnnyUtils
 test
+.eslintignore
+.eslintrc.json
+.gitignore
 
 .idea/**
 
