@@ -3,7 +3,6 @@
  */
 
 var schedule = require('node-schedule');
-var onnyUtils = require('onny-utils');
 
 module.exports = {
 
