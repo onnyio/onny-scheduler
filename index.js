@@ -9,7 +9,8 @@ module.exports = {
   /**
    * @param {object} ruleObj
    * @param {?number|number[]} [ruleObj.second = 0] - 0-59 null makes it tick every second
-   * @param {?number|number[]} [ruleObj.minute] - 0-59
+   * @param {?number|number[]} [ruleObj.minute] - 0-59 must be explicitly set to 0 if hour is set
+   *                                              otherwise will assume every minute
    * @param {?number|number[]} [ruleObj.hour] 0-23
    * @param {?number|number[]} [ruleObj.date] 1-31
    * @param {?number|number[]} [ruleObj.month] 0-11
@@ -22,12 +23,12 @@ module.exports = {
     var rule = new schedule.RecurrenceRule();
 
     rule.second = ruleObj.second === undefined ? 0 : ruleObj.second;
-    if (ruleObj.minute) { rule.minute = ruleObj.minute;}
-    if (ruleObj.hour) { rule.hour = ruleObj.hour;}
-    if (ruleObj.date) { rule.date = ruleObj.date;}
-    if (ruleObj.month) { rule.month = ruleObj.month;}
-    if (ruleObj.year) { rule.year = ruleObj.year;}
-    if (ruleObj.dayOfWeek) { rule.dayOfWeek = ruleObj.dayOfWeek;}
+    if (ruleObj.minute !== undefined) { rule.minute = ruleObj.minute;}
+    if (ruleObj.hour !== undefined) { rule.hour = ruleObj.hour;}
+    if (ruleObj.date !== undefined) { rule.date = ruleObj.date;}
+    if (ruleObj.month !== undefined) { rule.month = ruleObj.month;}
+    if (ruleObj.year !== undefined) { rule.year = ruleObj.year;}
+    if (ruleObj.dayOfWeek !== undefined) { rule.dayOfWeek = ruleObj.dayOfWeek;}
 
     return schedule.scheduleJob(rule, callback);
   }
