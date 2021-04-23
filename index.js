@@ -40,7 +40,7 @@ module.exports = {
 
 
 /**
- * @class SchedulerJob
+ * @typedef SchedulerJob
  *
  */
 
