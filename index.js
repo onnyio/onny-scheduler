@@ -2,7 +2,7 @@
  * Copyright (C) 2015-2016 Onny LLC - All Rights Reserved
  */
 
-var schedule = require('node-schedule');
+const schedule = require('node-schedule');
 
 module.exports = {
 
@@ -19,16 +19,16 @@ module.exports = {
    * @param {function} callback
    * @return {Job|*}
    */
-  recurrenceByTime: function (ruleObj, callback) {
-    var rule = new schedule.RecurrenceRule();
+  recurrenceByTime(ruleObj, callback) {
+    const rule = new schedule.RecurrenceRule();
 
     rule.second = ruleObj.second === undefined ? 0 : ruleObj.second;
-    if (ruleObj.minute !== undefined) { rule.minute = ruleObj.minute;}
-    if (ruleObj.hour !== undefined) { rule.hour = ruleObj.hour;}
-    if (ruleObj.date !== undefined) { rule.date = ruleObj.date;}
-    if (ruleObj.month !== undefined) { rule.month = ruleObj.month;}
-    if (ruleObj.year !== undefined) { rule.year = ruleObj.year;}
-    if (ruleObj.dayOfWeek !== undefined) { rule.dayOfWeek = ruleObj.dayOfWeek;}
+    if (ruleObj.minute !== undefined) { rule.minute = ruleObj.minute; }
+    if (ruleObj.hour !== undefined) { rule.hour = ruleObj.hour; }
+    if (ruleObj.date !== undefined) { rule.date = ruleObj.date; }
+    if (ruleObj.month !== undefined) { rule.month = ruleObj.month; }
+    if (ruleObj.year !== undefined) { rule.year = ruleObj.year; }
+    if (ruleObj.dayOfWeek !== undefined) { rule.dayOfWeek = ruleObj.dayOfWeek; }
 
     return schedule.scheduleJob(rule, callback);
   }

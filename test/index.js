@@ -2,29 +2,28 @@
  * Copyright (C) 2015-2016 Onny LLC - All Rights Reserved
  */
 
-var chai = require('chai');
-var scheduler = require('../index');
+/* eslint-disable import/no-extraneous-dependencies */
+const chai = require('chai');
+const scheduler = require('../index');
 
-var expect = chai.expect;
+const expect = chai.expect;
 
-describe(__filename, function () {
+describe(__filename, () => {
+  describe('schedule', () => {
+    it('Runs job once at some date, calls callback when done', function testSchedule(done) {
+      this.timeout(4000);
 
-  describe('schedule',function () {
-    it('Runs job once at some date, calls callback when done', function (done) {
-      this.timeout(4000)
+      let counter = 0;
 
-      var counter = 0;
-
-      var job = scheduler.recurrenceByTime({second: null}, function () {
+      const job = scheduler.recurrenceByTime({ second: null }, () => {
         counter += 1;
       });
 
-      setTimeout(function() {
+      setTimeout(() => {
         job.cancel();
         expect(counter).to.be.greaterThan(1);
         done();
       }, 2250);
-
-    })
-  })
+    });
+  });
 });
