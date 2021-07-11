@@ -12,23 +12,22 @@ module.exports = {
    * @return {SchedulerJob}
    */
   recurrenceByTime(recurrenceRule, callback) {
-    const rule = new schedule.RecurrenceRule();
+    const rule = Object.assign(new schedule.RecurrenceRule(), recurrenceRule);
 
+    // must be set to 0 for familiarity with cron
+    // https://www.npmjs.com/package/node-schedule
     rule.second = recurrenceRule.second === undefined ? 0 : recurrenceRule.second;
-    if (recurrenceRule.minute !== undefined) { rule.minute = recurrenceRule.minute; }
-    if (recurrenceRule.hour !== undefined) { rule.hour = recurrenceRule.hour; }
-    if (recurrenceRule.date !== undefined) { rule.date = recurrenceRule.date; }
-    if (recurrenceRule.month !== undefined) { rule.month = recurrenceRule.month; }
-    if (recurrenceRule.year !== undefined) { rule.year = recurrenceRule.year; }
-    if (recurrenceRule.dayOfWeek !== undefined) { rule.dayOfWeek = recurrenceRule.dayOfWeek; }
 
     return schedule.scheduleJob(rule, callback);
   }
 };
 
 /**
+ * It's worth noting that the default value of a component of a recurrence rule is null (except for second, which is 0 for familiarity with cron). If we did not explicitly set minute to 0 above, the message would have instead been logged at 5:00pm, 5:01pm, 5:02pm, ..., 5:59pm. Probably not what you want.
+ *
+ *
  * @typedef RecurrenceRule
- * @property {?number|number[]} [ruleObj.second = 0] - 0-59 null makes it tick every second
+ * @property {?number|number[]|null} [ruleObj.second = 0] - 0-59 null makes it tick every second
  * @property {?number|number[]} [ruleObj.minute] - 0-59 must be explicitly set to 0 if hour is set
  *                                              otherwise will assume every minute
  * @property {?number|number[]} [ruleObj.hour] 0-23

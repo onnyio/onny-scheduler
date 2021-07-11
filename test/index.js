@@ -26,4 +26,23 @@ describe(__filename, () => {
       }, 2250);
     });
   });
+  // describe('schedule hour', () => {
+  //   it('Runs job once at some date, calls callback when done', function testSchedule(done) {
+  //     this.timeout(4000);
+  //
+  //     let counter = 0;
+  //
+  //     const job = scheduler.recurrenceByTime({ hour: 1 }, () => {
+  //       counter += 1;
+  //     });
+  //
+  //     console.log('job', job);
+  //
+  //     setTimeout(() => {
+  //       job.cancel();
+  //       expect(counter).to.be.greaterThan(1);
+  //       done();
+  //     }, 2250);
+  //   });
+  // });
 });
